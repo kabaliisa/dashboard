@@ -1,0 +1,34 @@
+<div class=" auth-content mb-0 animated slideInRight">
+    <div class=" py-5 ">
+        <div class="text-center mb-5 ">
+            <div class=" text-center ">
+                <h2 style="font-size: 40px !important;" class="animated zoomIn" >Tell Us About Your Company</h2>
+            </div>
+        </div>
+        <form [formGroup]="companyForm" id="login-form " action="javascript:; " (ngSubmit)="companyForm.valid && register()">
+            <div class="form-group mb-4">
+                <label for="company">Company Name</label>
+                <input class="form-control" required id="company" type="text" name="company" aria-describedby="emailHelp" placeholder="Company Name" formControlName="company" [ngClass]="{'is-invalid':companyForm.get('company').touched && companyForm.get('company').invalid}">
+                <div class="invalid-feedback">
+                    <div>Company is required</div>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="employeeNo">Number of employees</label>
+                <select class="form-control"  id="employeeNo" name="noofemployees" formControlName="noofemployees">
+                    <option [value] = "i" *ngFor="let i of employees" >{{i}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="currencymode">Select Currency</label>
+                <select class="form-control" id="currencymode" name="currency" formControlName="currency" required >
+                  <option [value] = "item" *ngFor="let item of currencytype">{{item}}</option>
+                </select>
+               
+              </div>
+            <a><button class="btn btn-primary btn-rounded btn-block"  type="submit">NEXT</button></a>
+            <div class="text-muted text-center font-13 mt-5">Have an FDP account?<a class="ml-2" routerLink="Register" (click)="login()">Login</a></div>
+        </form>
+    </div>
+</div>

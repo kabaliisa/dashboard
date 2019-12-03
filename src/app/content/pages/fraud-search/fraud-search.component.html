@@ -1,0 +1,70 @@
+<subheader title='Fraud Search'></subheader>
+
+<div class="col-lg-12">
+
+		<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-1 col-xs-1"></div>
+						<div class="col-md-3 col-xs-3">
+							<h5 class="box-title mb-4 mt-3">Search By</h5>
+							<div ngbDropdown class="d-inline-block">
+								<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedSortOrder}}</button>
+								<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+									<button class="dropdown-item" *ngFor="let sortOrder of sortOrders" (click)="ChangeSortOrder(sortOrder)">{{sortOrder}}</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-7 col-xs-7">
+							<div [ngSwitch]='selectedSortOrder'>
+									<h5 class="box-title mb-4 mt-3">Search Details</h5>
+									<div *ngSwitchCase="'card'">
+										<form class="form-inline form-success mb-4" action="javascript:;">
+											<label class="sr-only" for="prefix">Prefix</label>
+											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="prefix" type="text" [(ngModel)]="searchObj.prefix" name="prefix" placeholder="prefix">
+											<label class="sr-only" for="suffix">Suffix</label>
+											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="suffix" type="text" [(ngModel)]="searchObj.suffix" name="suffix"  placeholder="suffix">
+										</form>
+									</div>
+									<div *ngSwitchCase="'account'">
+										<form class="form-inline form-success mb-4" action="javascript:;">
+											<label class="sr-only" for="acc">User Id</label>
+											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="acc" type="text" [(ngModel)]="searchObj.userId"  name="userId"  placeholder="User Id">
+											<label class="sr-only" for="number">Enter Phone</label>
+											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="number" type="text" [(ngModel)]="searchObj.msisdn" name="msisdn"   placeholder="Enter Phone">
+										</form>
+									</div>
+									<div *ngSwitchCase="'device'">
+										<form class="form-inline form-success mb-4" >
+											<label class="sr-only" for="model">IMEI</label>
+											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="model"  [(ngModel)]="searchObj.imei" type="text" name="imei"  placeholder="IMEI">
+											<label class="sr-only" for="suffix">Device Id</label>
+											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="deviceid" type="text"   [(ngModel)]="searchObj.deviceId" name="deviceId"  placeholder="DeviceId">
+										</form>
+									</div>
+									<div *ngSwitchCase="'mobilemoney'">
+									<div class="form-inline mb-4" >
+											<international-phone-number    name="msisdn"  placeholder="Enter phone number" [maxlength]="20" [defaultCountry]="'ug'" [required]="true" [(ngModel)]="searchObj.msisdn" name="phone_number" [allowedCountries]="['ug','rw','in', 'ca', 'us','tz','ke']"></international-phone-number>
+										</div>
+									</div>
+									<div *ngSwitchDefault>
+										<form class="form-inline form-success mb-4" action="javascript:;">
+												<label class="sr-only" for="param">Email</label>
+												<input [value]="dummyParam" class="form-control mb-2 mr-sm-2 mb-sm-0x" id="param" type="text" >
+										</form>
+									</div>
+								</div>
+						</div>
+					</div>
+
+					<div class="row py-4 d-flex justify-content-center">
+						<button class="btn btn-primary btn-xl" (click)="submit()"><i class="fa fa-search pr-3"></i>Search </button>
+					</div>
+				</div>
+		</div>
+	</div>
+	
+	<ng-template #LoginModal let-modal>
+		<app-modal ></app-modal>
+	  </ng-template>
+ 

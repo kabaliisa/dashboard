@@ -1,0 +1,484 @@
+<div class="summary">
+    <subheader title='Transaction Alerts'>
+    </subheader>
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="card">
+                <a style="cursor: pointer !important;" (click)="pendingTransactions()"> 
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal ">On Hold</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(alertsdatatiles.onholdtoday)}}</div><i class="ft ft-alert-triangle data-widget-cards text-warning"></i>
+                        <div class="text-muted mt-2"><small>UGX {{numberWithCommas(alertsdatatilestotal.onholdtoday)}}</small></div>
+                    </div>
+                 </a>   
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <a style="cursor: pointer;" (click)="confirmedFraud()">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal ">Fraud Today</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(count1)}}</div><i class="ft ft-alert-circle data-widget-cards text-danger"></i>
+                        <div class="text-muted mt-2"><small>UGX {{numberWithCommas(confirmedtoday)}}</small></div>
+                    </div>
+                </a>    
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+            <a style="cursor: pointer;"  (click)="resolvedTransactions()">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal ">Resolved Today</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(alertsdatatiles.resolvedtransactionstoday)}}</div><i class="ft ft-check-circle data-widget-cards text-success"></i>
+                        <div class="text-muted mt-2"><small>UGX {{numberWithCommas(alertsdatatilestotal.resolvedtransactionstoday)}}</small></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <a style="cursor: pointer;"  (click)="successfulTransactions()">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal ">Successful Today</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(alertsdatatiles.passed)}}</div><i class="ft ft-check data-widget-cards text-primary"></i>
+                        <div class="text-muted mt-2"><small>UGX {{numberWithCommas(alertsdatatilestotal.passed)}}</small></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <subheader title="Fraudulent Transactions">
+            </subheader>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">Today</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>&nbsp;{{numberWithCommas(confirmedtoday)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(count1)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Week</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>&nbsp;{{numberWithCommas(confirmedweek)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(count2)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Month</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span> &nbsp;{{numberWithCommas(confirmedmonth)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(count3)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Year</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>&nbsp;{{numberWithCommas(confirmedyear)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(count4)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <subheader title="Suspicious Transactions">
+            </subheader>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">Today</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>&nbsp;{{numberWithCommas(sustoday)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(suscount1)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Week</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>&nbsp;{{numberWithCommas(susweek)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(suscount2)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Month</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span> &nbsp;{{numberWithCommas(susmonth)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(suscount3)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Year</h6>
+                            <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>&nbsp;{{numberWithCommas(susyear)}}</div><span class="data-widget-icon">UGX</span>
+                            <div class="text-muted"><small>Transactions {{numberWithCommas(suscount4)}}</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- doughnutChart  -->
+            <div class="row mb-2">
+                <div class="col-lg-6">
+                    <card title='Fraudulent Transactions Vs Total Transactions' fullheight='true' *ngIf="pieChart1?.length > 0 ; else nodata">   
+                        <div>
+                            <canvas baseChart height="250"
+                                [data]="pieChart1"
+                                [chartType]="doughnutChart.type"
+                                [legend]="doughnutChart.legend"
+                                [labels]="doughnutChart.labels"
+                                [colors]="doughnutChart.colors"
+                                [options]="doughnutChart.options">
+                            </canvas>
+                        </div>
+                    </card>
+                   <ng-template #nodata>
+                        <card title='Fraudulent Transactions Vs Total Transactions' fullheight='true'>
+                            <mat-progress-spinner  style="margin-top:15% !important;  margin-left:45% !important; margin-bottom:15% !important;"
+                                class = "tp-margin"
+                                [diameter]="50" 
+                                [color] = "color"
+                                [mode] = "mode"
+                                [value] = "values" *ngIf="showSpinner">
+                            </mat-progress-spinner>
+                            <div class="text-center divheight mt-5" *ngIf="show">
+                                <img src="assets/img/image.png" class="animated shake" style = "margin-top: inherit;">
+                                <p>No transactions Yet</p>
+                            </div>
+                        </card>  
+                   </ng-template>
+                    
+                </div>
+                <div class="col-lg-6">
+                    <!-- <card title='Suspicious Transactions Vs Total Transactions' fullheight='true' *ngIf="FdVsSusted.length > 0; else showimage">
+                        <div>
+                            <canvas baseChart height="250"
+                                [data]="FdVsSusted"
+                                [chartType]="doughnutChart0.type"
+                                [labels]="doughnutChart0.labels"
+                                [legend]="doughnutChart0.legend"
+                                [colors]="doughnutChart0.colors"
+                                [options]="doughnutChart0.options">
+                            </canvas>
+                        </div>
+                    </card> -->
+
+                    <card title='Transactions On hold by method' fullheight='true' *ngIf="FdVsSusted.length > 0; else showimage">
+                            <div>
+                                <canvas baseChart height="250"
+                                    [data]="FdVsSusted"
+                                    [chartType]="doughnutChart0.type"
+                                    [labels]="doughnutChart0.labels"
+                                    [legend]="doughnutChart0.legend"
+                                    [colors]="doughnutChart0.colors"
+                                    [options]="doughnutChart0.options">
+                                </canvas>
+                            </div>
+                        </card>
+                   <ng-template #showimage>
+                    <card title='Transactions On hold by method' fullheight='true'>
+                        <mat-progress-spinner  style="margin-top:15% !important;  margin-left:45% !important; margin-bottom:15% !important;"
+                            class = "tp-margin"
+                            [diameter]="50" 
+                            [color] = "color"
+                            [mode] = "mode"
+                            [value] = "values" *ngIf="showSpinner">
+                        </mat-progress-spinner>
+                        <div class="text-center divheight mt-5" *ngIf="show">
+                            <img src="assets/img/image.png" class="animated shake" style = "margin-top: inherit;">
+                            <p>No transactions Yet</p>
+                        </div>
+                    </card>  
+                   </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+       
+        <div class="col-lg-6">
+            <card title='Fraudulent By Payment Method' fullheight='true' *ngIf="pieChart2.length > 0 ; else nopayment">
+                <div>
+                    <canvas baseChart height="250"
+                        [data]="doughnutChart2.data"
+                        [chartType]="doughnutChart2.type"
+                        [labels]="doughnutChart2.labels"
+                        [legend]="doughnutChart2.legend"
+                        [colors]="doughnutChart2.colors"
+                        [options]="doughnutChart2.options">
+                    </canvas>
+                </div>
+            </card>
+        </div>
+        <ng-template #nopayment>
+            <card title='Fraudulent By Payment Method' fullheight='true'>
+                <mat-progress-spinner  style="margin-top:15% !important;  margin-left:45% !important; margin-bottom:15% !important;"
+                    class = "tp-margin"
+                    [diameter]="50" 
+                    [color] = "color"
+                    [mode] = "mode"
+                    [value] = "values" *ngIf="showSpinner">
+                </mat-progress-spinner>
+                <div class="text-center divheight mt-5" *ngIf="show">
+                    <img src="assets/img/image.png" class="animated shake" style = "margin-top: inherit !important">
+                    <p>No transactions Yet</p>
+                </div>
+            </card>
+        </ng-template>
+
+        <div class="col-lg-6">
+            
+            <card title='Fraudulent By Product' fullheight='true' *ngIf="pieaChart3.length > 0 ; else noproduct" >
+                <div>
+                    <canvas baseChart height="250"
+                        [data]="doughnutChart1.data"
+                        [chartType]="doughnutChart1.type"
+                        [legend]="doughnutChart1.legend"
+                        [labels]="doughnutChart1.labels"
+                        [colors]="doughnutChart1.colors"
+                        [options]="doughnutChart1.options">
+                    </canvas>
+                </div>
+            </card>
+            <ng-template #noproduct>
+                <card title='Fraudulent By Product' fullheight='true'>
+                        <mat-progress-spinner  style="margin-top:15% !important;  margin-left:45% !important;"
+                            class = "tp-margin"
+                            [diameter]="50" 
+                            [color] = "color"
+                            [mode] = "mode"
+                            [value] = "values" *ngIf="showSpinner">
+                        </mat-progress-spinner>
+
+                    <div class="text-center divheight mt-5" *ngIf="show">
+                        <img src="assets/img/image.png" class="animated shake" style = "margin-top: inherit !important">
+                        <p>No transactions Yet</p>
+                    </div>
+                </card>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" title='Line Chart' fullheight='true'>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-5">
+                        <div>
+                            <h5 class="box-title mb-2">Fraudulent & On hold By Time</h5>
+                    </div>
+                         <div class="text-muted font-13">Last 30 days</div>
+                    </div>
+                    <div>
+                        <canvas baseChart height="300"
+                            [datasets]="lineChart2.data"
+                            [labels]="lineChart2.labels"
+                            [options]="lineChart2.options"
+                            [colors]="lineChart2.colors"
+                            [chartType]="lineChart2.type">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <subheader title='Total Transactions'>
+    </subheader>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">Today</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(totaltoday)}}</div><span class=" data-widget-icon">UGX</span>
+                        <div class="text-muted mt-2"><small>Transactions {{numberWithCommas(counttoday)}}</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Week</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(totalweek)}}</div><span class=" data-widget-icon">UGX</span>
+                        <div class="text-muted mt-2"><small>Transactions {{numberWithCommas(counteweek)}}</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Month</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(totalmonth)}}</div><span class=" data-widget-icon">UGX</span>
+                        <div class="text-muted mt-2"><small>Transactions {{numberWithCommas(countmonth)}}</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-3 font-15 text-muted font-weight-normal truncate">This Year</h6>
+                        <div class="h4 mb-0 font-weight-normal"><span class="text-muted font-13"></span>{{numberWithCommas(totalyear)}}</div><span class=" data-widget-icon">UGX</span>
+                        <div class="text-muted mt-2"><small>Transactions {{numberWithCommas(countyear)}}</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <subheader title='Recent Transactions On hold'>
+    </subheader>
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <div id="dt-base_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                       <ng-template #notable>
+                            <div class="col-sm-12">
+                                <div class="animated zoomIn">
+                                    <div class="text-center">
+                                        <img src="assets/img/image.png" class="animated shake">
+                                        <p>No Transactions Yet</p>
+                                    </div>
+                                </div>
+                            </div>
+                       </ng-template>
+            
+                        <div class="col-sm-12" *ngIf="data?.length > 0  ; else notable " >
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                            <div class="form-inline  mb-3 pull-right">
+                                                    <i class="fas fa-search" aria-hidden="true"></i>
+                                                    <input class="form-control form-control-sm ml-3" type="text" placeholder="Search" [(ngModel)]="term"
+                                                    aria-label="Search">
+                                            </div>
+                                        <!-- <div id="dt-base_filter" class="dataTables_filter pull-right  mb-4"><input type="search" [(ngModel)]="term" class="form-control form-control-sm" placeholder="Search" aria-controls="dt-base"></div> -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="overflow-x:auto;">
+                                    <table class="table  table-striped ">
+                                        <thead>
+                                            <tr role="row">
+                                                <th>Transaction ID</th>
+                                                <th style="cursor: pointer;"  *ngIf="clickState === 0" (click)="state()"><i class="ft ft-arrow-down"></i>&nbsp;Date</th>
+                                                <th style="cursor: pointer;" *ngIf="clickState === 1" (click)="state()"><i class="ft ft-arrow-up"></i>&nbsp;Date</th>
+                                                <th>Time</th>
+                                                <th>Payment Method</th>
+                                                <th>Amount</th>
+                                                <th >Status </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor='let item of data|filter:term'>
+                                                <td class="text-primary"><span style="cursor:pointer;" (click)="profile(item)" class="truncateid">{{item.transactionid}}</span></td>
+                                                <td style="cursor:pointer;"  (click)="profile(item)">{{item.date | date : 'mediumDate'}}</td>
+                                                <td style="cursor:pointer;"  (click)="profile(item)">{{item.date | date: 'shortTime'}}</td>
+                                                <td style="cursor:pointer;" (click)="profile(item)"><span *ngIf="item.paymentmethod == 'wallet'">{{item.paymentmethod | titlecase}}</span><span *ngIf="item.paymentmethod== 'mobilemoney'">Mobile Money</span><span *ngIf="item.paymentmethod== 'bankcard'">Bank Card</span></td>
+                                                <td style="cursor:pointer;" (click)="profile(item)">{{item.amount |currency:'UGX ':'symbol-narrow' }}</td>
+                                                <td style="cursor:pointer;"  *ngIf="item.status =='Fraud'" (click)="profile(item)"><span class="font-13 text-danger">Fraud</span></td>
+                                                <td style="cursor:pointer;"  *ngIf="item.status == 'Pending'" (click)="profile(item)"><span class="text-warning font-13">On hold</span></td>
+                                                <td style="cursor:pointer;"  *ngIf="item.status == 'Success'" (click)="profile(item)"><span class="text-success font-13">Not Fraud</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-fullheight">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-5">
+                        <div>
+                            <h5 class="box-title mb-2">Transaction Trends</h5>
+                        </div>
+                        <div class="text-muted font-13">Last 6 months</div>
+                    </div>
+                    <div>
+                        <canvas baseChart height="300" [datasets]="lineChart.data" [labels]="lineChart.labels" [options]="lineChart.options" [colors]="lineChart.colors" [chartType]="lineChart.type"> </canvas>
+                    </div>
+                   
+                    <div class="flexbox flex-wrap mt-5">
+                        <div class="d-flex mb-4 mb-sm-0">
+                            <div class="pr-4 pr-sm-5">
+                                <h6 class="mb-2 font-15 text-muted">Fraudulent Today</h6>
+                                <div class="h4 mb-0 text-danger">{{suspected.today | number :'2.1-2'}}%</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4 mb-sm-0">
+                            <div class="pr-4 pr-sm-5">
+                                <h6 class="mb-2 font-15 text-muted">Fraudulent This Week</h6>
+                                <div class="h4 mb-0 text-danger">{{suspected.week | number :'2.1-2'}}%</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4 mb-sm-0">
+                            <div class="pr-4 pr-sm-5">
+                                <h6 class="mb-2 font-15 text-muted">Fraudulent This Month</h6>
+                                <div class="h4 mb-0 text-danger">{{suspected.month | number :'2.1-2'}}%</div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4 mb-sm-0">
+                            <div class="pr-4 pr-sm-5">
+                                <h6 class="mb-2 font-15 text-muted">Fraudulent This Year</h6>
+                                <div class="h4 mb-0 text-danger">{{suspected.year | number :'2.1-2'}}%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flexbox flex-wrap mt-5">
+                            <div class="d-flex mb-4 mb-sm-0">
+                                <div class="pr-4 pr-sm-5">
+                                    <h6 class="mb-2 font-15 text-muted">On hold Today</h6>
+                                    <div class="h4 mb-0 text-primary">{{lastdata.today| number :'2.1-2'}}%</div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4 mb-sm-0">
+                                <div class="pr-4 pr-sm-5">
+                                    <h6 class="mb-2 font-15 text-muted">On hold This Week</h6>
+                                    <div class="h4 mb-0 text-primary">{{lastdata.week | number :'2.1-2'}}%</div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4 mb-sm-0">
+                                <div class="pr-4 pr-sm-5">
+                                    <h6 class="mb-2 font-15 text-muted">On hold This Month</h6>
+                                    <div class="h4 mb-0 text-primary">{{lastdata.month | number :'2.1-2'}}%</div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4 mb-sm-0">
+                                <div class="pr-4 pr-sm-5">
+                                    <h6 class="mb-2 font-15 text-muted mr-4">On hold This Year</h6>
+                                    <div class="h4 mb-0 text-primary">{{lastdata.year | number :'2.1-2'}}%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="flexbox flex-wrap mt-5">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #LoginModal let-modal>
+        <app-modal></app-modal>
+    </ng-template>

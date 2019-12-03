@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-9">
+        <h6 class="text-left ">Transaction Id &nbsp; <span class="text-primary">{{data?.Transactionid}}</span></h6>
+    </div>
+    <div class="col-md-3">
+        <button style="margin-right: 5px;" class="btn btn-outline-danger pull-right" *ngIf="data.Status =='fraud'"><i class="ft ft-refresh-cw data-widget-icon"></i>&nbsp;  Update Fraud Status</button>
+        <button style="margin-right: 5px;" class="btn btn-outline-danger pull-right" *ngIf="data.Status == 'notfraud'"><i class="ft ft-shield data-widget-icon"></i>&nbsp;  Report Fraud </button>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+<hr class="my-4">
+<div class="row mt-5">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Account</h5>
+                <hr>
+                <p class="card-text">Account Number :</p>
+                <p class="card-text">Subscription Id : {{data?.SubscriptionId}}</p>
+                <p class="card-text">Phone Number :</p>
+                <p class="card-text">Email :</p>
+                <div class="flexbox">
+                    <a href="#"></a>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Transaction</h5>
+                <hr>
+                <p class="card-text">Amount : {{data.Amount}}</p>
+                <p class="card-text">Payment Method : {{data?.ProviderId}}</p>
+                <p class="card-text">Product : {{data?.ProductId}}</p>
+                <p class="card-text">Date : {{data?.TransactionStartTime}}</p>
+                <div class="flexbox">
+                    <a href="#"></a>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Billing</h5>
+                <hr>
+                <p class="card-text">Card Type :</p>
+                <p class="card-text">Credit Card Number :</p>
+                <p class="card-text">Card Holder Name :</p>
+                <p class="card-text">Address :</p>
+                <div class="flexbox">
+                    <a href="#"></a>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Fraud Results</h5>
+                <hr>
+                <p class="card-text" *ngIf="data.Status == 'fraud'">Status : Fraud</p>
+                <p class="card-text" *ngIf="data.Status == 'notfraud'">Status : Not Fraud</p>
+                <p class="card-text" *ngIf="data.Status == 'onhold'">Status : Fraud</p>
+                <p class="card-text">When Detected :</p>
+                <p class="card-text">Phone Number :</p>
+                <div class="flexbox">
+                    <a href="#"></a>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Geolocation</h5>
+                <hr>
+                <p class="card-text">Distance From Billing :</p>
+                <p class="card-text">Match Billing Country :</p>
+                <p class="card-text">Proxy :</p>
+                <div class="flexbox">
+                    <a href="#"></a>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ng-template #LoginModal let-modal>
+    <app-modal></app-modal>
+</ng-template> -->
