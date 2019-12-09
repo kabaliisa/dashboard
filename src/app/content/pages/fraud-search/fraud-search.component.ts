@@ -59,7 +59,6 @@ export class FraudSearchComponent implements OnInit {
     this.bureauservice.searchRecords(this.searchObj)
       .subscribe( res => {
         this.result = res;
-        console.log(this.result);
       }, err => {
           this.toastr.error(err.error.message);
       }, () => {
