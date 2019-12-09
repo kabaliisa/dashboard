@@ -91,8 +91,8 @@ import { PostRecordComponent } from './content/pages/post-record/post-record.com
 import { SearchProfileComponent } from './content/pages/search-profile/search-profile.component';
 import { BureauApiComponent } from './content/pages/bureau-api/bureau-api.component';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faCoffee } from '@fortawesome/pro-light-svg-icons';
-import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
+// import { faCoffee } from '@fortawesome/pro-light-svg-icons';
+// import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 
@@ -216,6 +216,6 @@ export function tokenGetter() {
 export class AppModule {
   constructor() {
     // Add an icon to the library for convenient access in other components
-    library.add(faCoffee, faArrowAltRight);
+    // library.add(faCoffee, faArrowAltRight);
  }
 }
