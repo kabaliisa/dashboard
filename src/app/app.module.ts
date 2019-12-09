@@ -77,7 +77,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { AlertModule } from 'ngx-bootstrap';
 // import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { BureauDashboardComponent } from './content/pages/bureau-dashboard/bureau-dashboard.component';
 import { FraudSearchComponent } from './content/pages/fraud-search/fraud-search.component';
@@ -89,7 +89,7 @@ import { BureauApiComponent } from './content/pages/bureau-api/bureau-api.compon
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 // import { faCoffee } from '@fortawesome/pro-light-svg-icons';
 // import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
+// import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 
@@ -147,7 +147,7 @@ export function tokenGetter() {
   imports: [
     MatIconModule,
     NgbAlertModule,
-    FontAwesomeModule,
+    // FontAwesomeModule,
     AngularMyDatePickerModule,
     BrowserModule,
     Ng2SearchPipeModule,

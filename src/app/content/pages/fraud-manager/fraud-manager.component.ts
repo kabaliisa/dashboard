@@ -4,7 +4,6 @@ import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import {IAngularMyDpOptions, IMyDateModel} from 'angular-mydatepicker';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/services';
 
@@ -16,7 +15,6 @@ import { AuthenticationService } from 'src/services';
 export class FraudManagerComponent implements OnInit {
   @ViewChild('LoginModal') LogiModal: TemplateRef<any>;
 
-  faCoffee = faCoffee;
   transactions: any;
   resultdata: any;
   filteredData: any;
