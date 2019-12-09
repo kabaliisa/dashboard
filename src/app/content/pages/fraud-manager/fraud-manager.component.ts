@@ -8,7 +8,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/services';
 
-
 @Component({
   selector: 'app-fraud-manager',
   templateUrl: './fraud-manager.component.html',
@@ -253,12 +252,14 @@ previousmethod() {
   }
 
 
-  postRecord(id) {
+  postRecord() {
     this.route.navigate(['Rac/Postrecord']);
   }
 
 
   save(filtered) {
+    Object.keys(filtered).forEach((key) => (filtered[key] == null || filtered[key] == '' && key !== 'amount'  ) && delete filtered[key]);
+
     this.showSpinner = true;
     this.show = false;
 
@@ -266,7 +267,6 @@ previousmethod() {
       .subscribe(
         (res) => {
             this.resultdata = res;
-            console.log(this.resultdata);
             this.modalService.dismissAll();
         }, (err) => {
           // this.result = {status: false, msg: 'Network Error' };

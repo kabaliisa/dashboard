@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, Renderer2, HostBinding, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
-import { ThemeConfigService } from '../../../../../app/core/services/theme-config.service';
-import { ComponenRegistryService } from '../../../../../app/core/services/component-registry.service';
-import { BackdropService } from '../../../../../app/core/services/backdrop.service';
+import { ThemeConfigService } from 'src/app/core/services/theme-config.service';
+import { ComponenRegistryService } from 'src/app/core/services/component-registry.service';
+import { BackdropService } from 'src/app/core/services/backdrop.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -13,23 +13,16 @@ import { BackdropService } from '../../../../../app/core/services/backdrop.servi
 export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
     themeConfig: any;
-    // tslint:disable-next-line:variable-name
     _SidebarDrawerMode = false;
-    // tslint:disable-next-line:variable-name
     _sidebarAlwaysDrawerMode = false;
-    // tslint:disable-next-line:variable-name
     _folded = false;
     opened: boolean;
 
     constructor(
-        // tslint:disable-next-line:variable-name
         private _el: ElementRef,
         private renderer: Renderer2,
-        // tslint:disable-next-line:variable-name
         private _backdropService: BackdropService,
-        // tslint:disable-next-line:variable-name
         public _themeConfigService: ThemeConfigService,
-        // tslint:disable-next-line:variable-name
         private _componenRegistryService: ComponenRegistryService,
     ) { }
 
@@ -62,7 +55,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
     sidebarToggleHandler() {
         if (this._SidebarDrawerMode) {
-            // this.toggleDrawerSidebar();
+            this.toggleDrawerSidebar();
         } else {
             document.body.classList.toggle('mini-sidebar');
         }

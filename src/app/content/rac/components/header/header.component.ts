@@ -64,7 +64,7 @@ implements OnInit, AfterViewInit, OnDestroy {
                   this.sideBar = this._componenRegistryService.getComponent('sidenav');
                   this.quickSidebar = this._componenRegistryService.getComponent('quick-sidebar');
             });
-      this.triggerClick();
+      // this.triggerClick();
       this.getSummarytilesdata();    }
 
 

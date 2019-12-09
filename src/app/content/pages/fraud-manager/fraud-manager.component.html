@@ -15,7 +15,7 @@
             <form class="form-horizontal"  #f="ngForm" (ngSubmit)="save(f.value)">
                     <div class="form-group">
                         <label for="exampleFormControlInput">Transaction Id</label>
-                            <input class="form-control" ngModel  type="text" name="transactionid"  placeholder="Transaction Id">
+                        <input class="form-control" ngModel  type="text" name="transactionid"  placeholder="Transaction Id">
                     </div>
                     <div class="form-group">
                         <label>User Id</label>
@@ -32,14 +32,14 @@
                     </div>
                     <div class="form-group">
                         <label>Payment method</label>
-                        <select class="form-control mb-3" ngModel  type="text" name="paymentMethod">
+                        <select class="form-control mb-3" ngModel  type="text" name="paymentmethod">
                             <option value="">Please Select</option>
                             <option value="mobilemoney">Mobile Money</option>
                             <option value="wallet">Wallet</option>
                             <option value="bankcard">Bank Card</option>
                         </select>
                     </div>
-                        <button class="btn btn-primary pull-right"><i class="ft ft-filter"></i>&nbsp;Filter</button>
+                    <button class="btn btn-primary pull-right"><i class="ft ft-filter"></i>&nbsp;Filter</button>
             </form>
     </div>
 </ng-template>
@@ -90,11 +90,8 @@
                                   <td (click)="profile(item)">{{item.transactiondata.amount.amount}}</td>
                                   <td class="pr-4" (click)="profile(item)">{{item.transactiondata.paymentMethod.name}}</td>
                               </tr>
-                             
                           </tbody>
-                          
                       </table>
-                    
                   </div>
                   <div class="row">
                         <div class="col-md-12">
@@ -113,8 +110,6 @@
                                         <p>No Transactions Yet</p> 
                                     </div>
                                 </div>
-
-                                
                         </div>
                     </div>
 
@@ -143,7 +138,6 @@
           </div>
       </div>
   </div>
-
 </div>
 
 <ng-template #LoginModal let-modal>

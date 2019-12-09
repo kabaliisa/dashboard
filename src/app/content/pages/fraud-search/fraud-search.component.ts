@@ -12,7 +12,7 @@ import { AuthenticationService } from 'src/services';
 })
 export class FraudSearchComponent implements OnInit {
   @ViewChild('LoginModal') LogiModal: TemplateRef<any>;
-
+  sentdata: any;
   sortOrders: string[] = ['card', 'mobilemoney', 'device'];
   result: any;
   redirect: Boolean = false;
@@ -59,6 +59,7 @@ export class FraudSearchComponent implements OnInit {
     this.bureauservice.searchRecords(this.searchObj)
       .subscribe( res => {
         this.result = res;
+        console.log(this.result);
       }, err => {
           this.toastr.error(err.error.message);
       }, () => {
@@ -77,6 +78,7 @@ export class FraudSearchComponent implements OnInit {
     this.bureauservice.seteditsession(this.result);
     this.router.navigate(['/Rac/Searchprofile']);
   }
+
   showError() {
     this.toastr.error(this.result.msg);
 

@@ -133,9 +133,12 @@ export class NavigationComponent implements OnInit {
       title: 'Billing',
       url: 'Settings/Billing',
       icon: 'ft ft-credit-card',
+      // icon: 'fal fa-arrow-right',
     }
   ];
 }
+
+
 
   ngOnInit() {
   }

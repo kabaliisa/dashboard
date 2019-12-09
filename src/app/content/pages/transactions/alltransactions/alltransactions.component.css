@@ -18,7 +18,9 @@ tfoot {
   /* border-top: 0 !important; */
 }
 
-
+img, canvas {
+  max-width: 8%;
+}
 /*
 table {
   font-size: 11px !important;
@@ -28,9 +30,7 @@ table {
   margin-top: 12%;
 } */
 
-img {
-  max-width: 30% !important;
-}
+
 
 .status {
   text-align: center;
@@ -44,7 +44,7 @@ img {
 }
 
 img[_ngcontent-c10] {
-  max-width: 30% !important;
+  max-width: 30%;
 }
 
 
