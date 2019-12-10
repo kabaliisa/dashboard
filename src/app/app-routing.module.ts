@@ -3,6 +3,7 @@ import { PostRecordComponent } from './content/pages/post-record/post-record.com
 import { RecordProfileComponent } from './content/pages/record-profile/record-profile.component';
 import { FraudSearchComponent } from './content/pages/fraud-search/fraud-search.component';
 import { FraudManagerComponent } from './content/pages/fraud-manager/fraud-manager.component';
+import { MobilemoneyComponent } from './content/pages/blacklist/mobilemoney/mobilemoney.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {LoginComponent} from './auth/login/login.component';
@@ -25,6 +26,8 @@ import { AdminComponent } from './auth/admin/admin.component';
 import { EmailComponent } from './auth/email/email.component';
 import { FraudpreventedComponent } from './content/pages/transactions/fraudprevented/fraudprevented.component';
 import {SuccessTransactionsComponent} from './content/pages/transactions/success-transactions/success-transactions.component';
+import { BlacklistaccountsComponent } from './content/pages/blacklist/blacklistaccounts/blacklistaccounts.component';
+import { BlacklistcardsComponent } from './content/pages/blacklist/blacklistcards/blacklistcards.component';
 import { LoadingComponent } from './content/loading/loading.component';
 import { AuthGuard } from '../@helpers';
 import { ConfirmingemailComponent } from './content/confirming/confirming.component';
@@ -32,6 +35,7 @@ import { ResolvedtransactionsComponent } from './content/pages/transactions/reso
 import { PendingprofileComponent } from './content/pages/transactions/pendingtransactions/pendingprofile/pendingprofile.component';
 // tslint:disable-next-line:max-line-length
 import { FraudpreventedprofileComponent } from './content/pages/transactions/fraudprevented/fraudpreventedprofile/fraudpreventedprofile.component';
+import { DevicesComponent } from './content/pages/blacklist/devices/devices.component';
 import { RulesengineComponent } from './content/pages/rulesengine/rulesengine.component';
 import { RulesComponent } from './content/pages/rulesengine/rules/rules.component';
 import { SetrulesComponent } from './content/pages/rulesengine/setrules/setrules.component';
@@ -80,6 +84,12 @@ const routes: Routes = [
         {path: 'Summary', component: SummaryComponent},
         {path: 'Attributes', component: AttributesComponent},
         {path: 'SetRules', component: SetrulesComponent},
+        {path: 'Blacklist', children: [
+          {path: 'Accounts', component:   BlacklistaccountsComponent},
+          {path: 'Cards', component: BlacklistcardsComponent},
+          {path: 'Devices', component: DevicesComponent},
+          {path: 'Mobilemoney', component:   MobilemoneyComponent},
+        ]},
         {path: 'Rulesengine', component: RulesengineComponent,
         children: [
         ]

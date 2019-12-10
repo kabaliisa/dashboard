@@ -44,6 +44,8 @@ import {NgbModule, NgbAlert, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
 import { LoadingComponent } from './content/loading/loading.component';
+import { BlacklistaccountsComponent } from './content/pages/blacklist/blacklistaccounts/blacklistaccounts.component';
+import { BlacklistcardsComponent } from './content/pages/blacklist/blacklistcards/blacklistcards.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BillingService } from '../services/billing.service';
 import { BlacklistService } from '../services/blacklist.service';
@@ -58,6 +60,7 @@ import { ResolvedtransactionsComponent } from './content/pages/transactions/reso
 import { PendingprofileComponent } from './content/pages/transactions/pendingtransactions/pendingprofile/pendingprofile.component';
 // tslint:disable-next-line:max-line-length
 import { FraudpreventedprofileComponent } from './content/pages/transactions/fraudprevented/fraudpreventedprofile/fraudpreventedprofile.component';
+import { DevicesComponent } from './content/pages/blacklist/devices/devices.component';
 import { RulesComponent } from './content/pages/rulesengine/rules/rules.component';
 import { SetrulesComponent } from './content/pages/rulesengine/setrules/setrules.component';
 import { AttributesComponent } from './content/pages/settings/attributes/attributes.component';
@@ -73,6 +76,7 @@ import { CardComponent } from './content/rac/components/card/card.component';
 import { ValidatorsModule } from 'ngx-validators';
 import { MatTableModule, MatTabsModule, MatProgressSpinnerModule, MatProgressBarModule, MatIcon, MatIconModule } from '@angular/material';
 import { AlltransactionsComponent } from './content/pages/transactions/alltransactions/alltransactions.component';
+import { MobilemoneyComponent } from './content/pages/blacklist/mobilemoney/mobilemoney.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { AlertModule } from 'ngx-bootstrap';
 // import { MyDateRangePickerModule } from 'mydaterangepicker';
@@ -87,9 +91,9 @@ import { PostRecordComponent } from './content/pages/post-record/post-record.com
 import { SearchProfileComponent } from './content/pages/search-profile/search-profile.component';
 import { BureauApiComponent } from './content/pages/bureau-api/bureau-api.component';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-// import { faCoffee } from '@fortawesome/pro-light-svg-icons';
-// import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
-// import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee } from '@fortawesome/pro-light-svg-icons';
+import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 
@@ -123,8 +127,11 @@ export function tokenGetter() {
     PendingprofileComponent,
     FraudpreventedComponent,
     RulesengineComponent,
+    BlacklistaccountsComponent,
+    BlacklistcardsComponent,
     FraudpreventedprofileComponent,
     LoadingComponent,
+    DevicesComponent,
     RulesComponent,
     SetrulesComponent,
     AttributesComponent,
@@ -135,6 +142,7 @@ export function tokenGetter() {
     PagenotfoundComponent,
     SuccessTransactionsComponent,
     CardComponent,
+    MobilemoneyComponent,
     ResetPasswordComponent,
     BureauDashboardComponent,
     FraudSearchComponent,
@@ -208,6 +216,6 @@ export function tokenGetter() {
 export class AppModule {
   constructor() {
     // Add an icon to the library for convenient access in other components
-    // library.add(faCoffee, faArrowAltRight);
+    library.add(faCoffee, faArrowAltRight);
  }
 }
