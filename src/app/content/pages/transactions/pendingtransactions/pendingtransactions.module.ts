@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PendingtransactionsRoutingModule } from './pendingtransactions-routing.module';
-import { CardComponent } from 'src/app/content/rac/components/card/card.component';
 import { ModalComponent } from '../../modal/modal.component';
 import { PendingtransactionsComponent } from './pendingtransactions.component';
 import { SubheaderModule } from 'src/app/content/rac/components/subheader/subheader.module';

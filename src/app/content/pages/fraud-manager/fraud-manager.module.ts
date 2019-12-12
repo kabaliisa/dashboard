@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FraudManagerRoutingModule } from './fraud-manager-routing.module';
-import { CardComponent } from '../../rac/components/card/card.component';
 import { ModalComponent } from '../modal/modal.component';
 import { FraudManagerComponent } from './fraud-manager.component';
 import { SubheaderModule } from '../../rac/components/subheader/subheader.module';

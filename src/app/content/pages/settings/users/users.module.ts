@@ -7,7 +7,6 @@ import { SubheaderModule } from 'src/app/content/rac/components/subheader/subhea
 import { MatTableModule, MatTabsModule, MatProgressSpinnerModule, MatProgressBarModule, MatIconModule } from '@angular/material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CardComponent } from 'src/app/content/rac/components/card/card.component';
 import { ModalComponent } from '../../modal/modal.component';
 import { UsersComponent } from './users.component';
 import { InternationalPhoneNumberModule } from 'ngx-international-phone-number';

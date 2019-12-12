@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TransactionprofileRoutingModule } from './transactionprofile-routing.module';
-import { CardComponent } from '../../rac/components/card/card.component';
 import { ModalComponent } from '../modal/modal.component';
 import { TransactionprofileComponent } from './transactionprofile.component';
 import { SubheaderModule } from '../../rac/components/subheader/subheader.module';

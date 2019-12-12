@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ResolvedtransactionsRoutingModule } from './resolvedtransactions-routing.module';
-import { CardComponent } from 'src/app/content/rac/components/card/card.component';
-import { ModalComponent } from '../../modal/modal.component';
 import { ResolvedtransactionsComponent } from './resolvedtransactions.component';
 import { SubheaderModule } from 'src/app/content/rac/components/subheader/subheader.module';
 import { MatTableModule, MatTabsModule, MatProgressSpinnerModule, MatProgressBarModule } from '@angular/material';

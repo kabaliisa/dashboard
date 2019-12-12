@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BureauApiRoutingModule } from './bureau-api-routing.module';
-import { CardComponent } from '../../rac/components/card/card.component';
 import { ModalComponent } from '../modal/modal.component';
 import { BureauApiComponent } from './bureau-api.component';
 import { SubheaderModule } from '../../rac/components/subheader/subheader.module';

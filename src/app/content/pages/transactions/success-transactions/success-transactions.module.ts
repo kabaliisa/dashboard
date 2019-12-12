@@ -6,7 +6,6 @@ import { SubheaderModule } from 'src/app/content/rac/components/subheader/subhea
 import { MatTableModule, MatTabsModule, MatProgressSpinnerModule, MatProgressBarModule } from '@angular/material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CardComponent } from 'src/app/content/rac/components/card/card.component';
 import { ModalComponent } from '../../modal/modal.component';
 import { SuccessTransactionsComponent } from './success-transactions.component';
 import { CardModule } from 'src/app/core/components/card/card.module';
