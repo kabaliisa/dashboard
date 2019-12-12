@@ -105,6 +105,7 @@ import { SetrulesModule } from './content/pages/rulesengine/setrules/setrules.mo
 import { EditrulesModule } from './content/pages/rulesengine/editrules/editrules.module';
 import { RulesengineModule } from './content/pages/rulesengine/rulesengine.module';
 import { RulesModule } from './content/pages/rulesengine/rules/rules.module';
+import { CardModule } from './core/components/card/card.module';
 
 
 
@@ -205,6 +206,7 @@ export function tokenGetter() {
     FraudpreventedModule,
     ApiModule,
     ProfileModule,
+    CardModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot(),
     AlertModule.forRoot(),
