@@ -30,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     FormsModule,
-    InternationalPhoneNumberModule,
+    InternationalPhoneNumberModule
   ]
 })
 export class FraudSearchModule { }
