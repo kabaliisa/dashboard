@@ -6,7 +6,6 @@ RUN npm install
 
 ARG configuration=production
 RUN npm run build -- --output-path=./dist --configuration $configuration
-RUN npm run build --environment=$env
 
 # stage 2do
 FROM nginx:alpine

@@ -98,7 +98,6 @@ export class FraudManagerComponent implements OnInit {
 
     }, () => {
       this.showSpinner = true;
-      // this.transactions.status ? this.successful() : this.displayError();
       this.show = false;
       this.previous = this.transactions.data.prevPage;
       this.nextpage = this.transactions.data.nextPage;

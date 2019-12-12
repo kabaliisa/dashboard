@@ -1,3 +1,7 @@
+import { ProfileModule } from './content/pages/settings/profile/profile.module';
+import { ApiModule } from './content/pages/settings/api/api.module';
+import { FraudpreventedModule } from './content/pages/transactions/fraudprevented/fraudprevented.module';
+import { SummaryModule } from './content/pages/summary/summary.module';
 import { BureauService } from 'src/services/bureau.service';
 import { ConfirmingemailComponent } from './content/confirming/confirming.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import {GettingStartedComponent} from '../app/content/pages/getting-started/getting-started.component';
-import {LoginComponent} from './auth/login/login.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -22,11 +25,7 @@ import { SidebarModule } from './content/rac/components/sidebar/sidebar.module';
 import { NavigationModule } from './content/rac/components/navigation/navigation.module';
 import { FooterModule } from './content/rac/components/footer/footer.module';
 import { HeaderModule } from './content/rac/components/header/header.module';
-import { TransactionprofileComponent } from './content/pages/transactionprofile/transactionprofile.component';
 import { UsersComponent } from './content/pages/settings/users/users.component';
-import { SubheaderModule } from './content/rac/components/subheader/subheader.module';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { SummaryComponent } from './content/pages/summary/summary.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DataTablesModule } from 'angular-datatables';
 import { ProfileComponent } from './content/pages/settings/profile/profile.component';
@@ -34,18 +33,12 @@ import { ApiComponent } from './content/pages/settings/api/api.component';
 import { BillingComponent } from './content/pages/settings/billing/billing.component';
 import { PendingtransactionsComponent } from './content/pages/transactions/pendingtransactions/pendingtransactions.component';
 import { BillingdetailsComponent } from './content/pages/settings/billing/billingdetails/billingdetails.component';
-import { HomeComponent } from './auth/home/home.component';
-import { CompanyComponent } from './auth/company/company.component';
-import { AdminComponent } from './auth/admin/admin.component';
-import { EmailComponent } from './auth/email/email.component';
 import { FraudpreventedComponent } from './content/pages/transactions/fraudprevented/fraudprevented.component';
 import { RulesengineComponent } from './content/pages/rulesengine/rulesengine.component';
 import {NgbModule, NgbAlert, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
 import { LoadingComponent } from './content/loading/loading.component';
-import { BlacklistaccountsComponent } from './content/pages/blacklist/blacklistaccounts/blacklistaccounts.component';
-import { BlacklistcardsComponent } from './content/pages/blacklist/blacklistcards/blacklistcards.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BillingService } from '../services/billing.service';
 import { BlacklistService } from '../services/blacklist.service';
@@ -60,7 +53,6 @@ import { ResolvedtransactionsComponent } from './content/pages/transactions/reso
 import { PendingprofileComponent } from './content/pages/transactions/pendingtransactions/pendingprofile/pendingprofile.component';
 // tslint:disable-next-line:max-line-length
 import { FraudpreventedprofileComponent } from './content/pages/transactions/fraudprevented/fraudpreventedprofile/fraudpreventedprofile.component';
-import { DevicesComponent } from './content/pages/blacklist/devices/devices.component';
 import { RulesComponent } from './content/pages/rulesengine/rules/rules.component';
 import { SetrulesComponent } from './content/pages/rulesengine/setrules/setrules.component';
 import { AttributesComponent } from './content/pages/settings/attributes/attributes.component';
@@ -72,11 +64,10 @@ import { ModalComponent } from './content/pages/modal/modal.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { SuccessTransactionsComponent } from './content/pages/transactions/success-transactions/success-transactions.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { CardComponent } from './content/rac/components/card/card.component';
+// import { CardComponent } from './content/rac/components/card/card.component';
 import { ValidatorsModule } from 'ngx-validators';
 import { MatTableModule, MatTabsModule, MatProgressSpinnerModule, MatProgressBarModule, MatIcon, MatIconModule } from '@angular/material';
 import { AlltransactionsComponent } from './content/pages/transactions/alltransactions/alltransactions.component';
-import { MobilemoneyComponent } from './content/pages/blacklist/mobilemoney/mobilemoney.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { AlertModule } from 'ngx-bootstrap';
 // import { MyDateRangePickerModule } from 'mydaterangepicker';
@@ -94,6 +85,26 @@ import { BureauApiComponent } from './content/pages/bureau-api/bureau-api.compon
 import { faCoffee } from '@fortawesome/pro-light-svg-icons';
 import { faArrowAltRight } from '@fortawesome/pro-light-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { LoginModule } from './auth/login/login.module';
+import { AlltransactionsModule } from './content/pages/transactions/alltransactions/alltransactions.module';
+import { ResolvedtransactionsModule } from './content/pages/transactions/resolvedtransactions/resolvedtransactions.module';
+import { SuccessTransactionsModule } from './content/pages/transactions/success-transactions/success-transactions.module';
+import { ModalModule } from './content/pages/modal/modal.module';
+import { FraudManagerModule } from './content/pages/fraud-manager/fraud-manager.module';
+import { SubheaderModule } from './content/rac/components/subheader/subheader.module';
+import { ChartsModule } from 'ng2-charts';
+import { PendingtransactionsModule } from './content/pages/transactions/pendingtransactions/pendingtransactions.module';
+import { UsersModule } from './content/pages/settings/users/users.module';
+import { SearchProfileModule } from './content/pages/search-profile/search-profile.module';
+import { FraudSearchModule } from './content/pages/fraud-search/fraud-search.module';
+import { RecordProfileModule } from './content/pages/record-profile/record-profile.module';
+import { PostRecordModule } from './content/pages/post-record/post-record.module';
+import { BureauApiModule } from './content/pages/bureau-api/bureau-api.module';
+import { AttributesModule } from './content/pages/settings/attributes/attributes.module';
+import { SetrulesModule } from './content/pages/rulesengine/setrules/setrules.module';
+import { EditrulesModule } from './content/pages/rulesengine/editrules/editrules.module';
+import { RulesengineModule } from './content/pages/rulesengine/rulesengine.module';
+import { RulesModule } from './content/pages/rulesengine/rules/rules.module';
 
 
 
@@ -107,50 +118,39 @@ export function tokenGetter() {
     AppComponent,
     BackdropComponent,
     ConfirmingemailComponent,
-    LoginComponent,
     GettingStartedComponent,
-    TransactionprofileComponent,
-    UsersComponent,
-    SummaryComponent,
-    ProfileComponent,
-    ApiComponent,
+    // UsersComponent,
+    // ProfileComponent,
+    // ApiComponent,
     BillingComponent,
     FraudpreventedprofileComponent,
-    ResolvedtransactionsComponent,
-    AlltransactionsComponent,
-    PendingtransactionsComponent,
+    // ResolvedtransactionsComponent,
+    // AlltransactionsComponent,
+    // PendingtransactionsComponent,
     BillingdetailsComponent,
-    HomeComponent,
-    CompanyComponent,
-    AdminComponent,
-    EmailComponent,
     PendingprofileComponent,
-    FraudpreventedComponent,
-    RulesengineComponent,
-    BlacklistaccountsComponent,
-    BlacklistcardsComponent,
-    FraudpreventedprofileComponent,
+    // FraudpreventedComponent,
+    // RulesengineComponent,
+    // FraudpreventedprofileComponent,
     LoadingComponent,
-    DevicesComponent,
-    RulesComponent,
-    SetrulesComponent,
-    AttributesComponent,
-    TimeformatterPipe,
+    // RulesComponent,
+    // SetrulesComponent,
+    // AttributesComponent,
+    // TimeformatterPipe,
     CurrencyformatterPipe,
-    EditrulesComponent,
-    ModalComponent,
+    // EditrulesComponent,
+    // ModalComponent,
     PagenotfoundComponent,
-    SuccessTransactionsComponent,
-    CardComponent,
-    MobilemoneyComponent,
-    ResetPasswordComponent,
+    // SuccessTransactionsComponent,
+    // CardComponent,
+    // ResetPasswordComponent,
     BureauDashboardComponent,
-    FraudSearchComponent,
-    FraudManagerComponent,
-    RecordProfileComponent,
-    PostRecordComponent,
-    SearchProfileComponent,
-    BureauApiComponent,
+    // FraudSearchComponent,
+    // FraudManagerComponent,
+    // RecordProfileComponent,
+    // PostRecordComponent,
+    // SearchProfileComponent,
+    // BureauApiComponent,
   ],
   imports: [
     MatIconModule,
@@ -168,6 +168,7 @@ export function tokenGetter() {
     ValidatorsModule,
     ReactiveFormsModule,
     SidebarModule,
+    ModalModule,
     SubheaderModule,
     ChartsModule,
     NavigationModule,
@@ -182,7 +183,28 @@ export function tokenGetter() {
     InternationalPhoneNumberModule,
     NgxDatatableModule,
     DataTablesModule,
+    LoginModule,
+    SummaryModule,
+    FraudManagerModule,
+    SuccessTransactionsModule,
+    AlltransactionsModule,
     BrowserAnimationsModule,
+    ResolvedtransactionsModule,
+    PendingtransactionsModule,
+    UsersModule,
+    SearchProfileModule,
+    FraudSearchModule,
+    RecordProfileModule,
+    PostRecordModule,
+    BureauApiModule,
+    AttributesModule,
+    SetrulesModule,
+    EditrulesModule,
+    RulesengineModule,
+    RulesModule,
+    FraudpreventedModule,
+    ApiModule,
+    ProfileModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot(),
     AlertModule.forRoot(),
