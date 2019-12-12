@@ -106,6 +106,12 @@ import { EditrulesModule } from './content/pages/rulesengine/editrules/editrules
 import { RulesengineModule } from './content/pages/rulesengine/rulesengine.module';
 import { RulesModule } from './content/pages/rulesengine/rules/rules.module';
 import { CardModule } from './core/components/card/card.module';
+import { HomeModule } from './auth/home/home.module';
+import { CompanyModule } from './auth/company/company.module';
+import { AdminModule } from './auth/admin/admin.module';
+import { EmailModule } from './auth/email/email.module';
+import { ResetPasswordModule } from './auth/reset-password/reset-password.module';
+import { TransactionprofileModule } from './content/pages/transactionprofile/transactionprofile.module';
 
 
 
@@ -207,6 +213,12 @@ export function tokenGetter() {
     ApiModule,
     ProfileModule,
     CardModule,
+    HomeModule,
+    CompanyModule,
+    AdminModule,
+    EmailModule,
+    ResetPasswordModule,
+    TransactionprofileModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot(),
     AlertModule.forRoot(),

@@ -71,7 +71,10 @@ const routes: Routes = [
       path: 'Email',
       loadChildren: () => import('./auth/email/email.module').then(m => m.EmailModule)
     },
-    {path: 'Logout', component: LoginComponent},
+    {
+      path: 'Logout',
+      loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
+    },
     {path: 'ConfirmingEmail/:token/:role', component: ConfirmingemailComponent},
     {
       path: 'ressetPassword/:token',
@@ -94,17 +97,16 @@ const routes: Routes = [
       {
         path: 'Fraudmanager',
         loadChildren: () => import('./content/pages/fraud-manager/fraud-manager.module').then(m => m.FraudManagerModule)
-
+  
       },
       {
         path: 'Recordprofile', 
-        loadChildren: () => import('./content/pages/fraud-manager/fraud-manager.module').then(m => m.FraudManagerModule)
+        loadChildren: () => import('./content/pages/record-profile/record-profile.module').then(m => m.RecordProfileModule)
 
       },
       {
         path: 'Postrecord', 
         loadChildren: () => import('./content/pages/post-record/post-record.module').then(m => m.PostRecordModule)
-
       },
       {
         path: 'Bureauapi',
