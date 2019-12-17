@@ -71,7 +71,7 @@
                       <table class="table table-hover table-striped">
                           <thead class="thead-default thead-lg">
                               <tr>
-                                  <th class="pl-4">Transaction ID</th>
+                                  <!-- <th class="pl-4">Transaction ID</th> -->
                                   <th>Date</th>
                                   <th>Time</th>
                                   <th>Account</th>
@@ -82,7 +82,7 @@
                           </thead>
                           <tbody>
                               <tr *ngFor="let item of resultdata">
-                                  <td class="pl-4 text-primary" (click)="profile(item)"><span class="truncate">{{item.transactiondata.transactionId}}</span></td>
+                                  <!-- <td class="pl-4 text-primary" (click)="profile(item)"><span class="truncate">{{item.transactiondata.transactionId}}</span></td> -->
                                   <td (click)="profile(item)">{{item.transactiondata.transactionDate | date}}</td>
                                   <td (click)="profile(item)">{{item.transactiondata.transactionDate | date: 'shortTime'}}</td>
                                   <td (click)="profile(item)">{{item.transactiondata.accountDetails.userId}}</td>

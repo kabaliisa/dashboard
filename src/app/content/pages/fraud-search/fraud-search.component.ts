@@ -14,6 +14,8 @@ export class FraudSearchComponent implements OnInit {
   @ViewChild('LoginModal') LogiModal: TemplateRef<any>;
   sentdata: any;
   sortOrders: string[] = ['card', 'mobilemoney', 'device'];
+  deviceDetails: string[] = ['imei', 'deviceId'];
+  detailOrder = 'Select details';
   result: any;
   redirect: Boolean = false;
   selectedSortOrder = 'Select parameters';
@@ -26,6 +28,16 @@ export class FraudSearchComponent implements OnInit {
       deviceId: '',
       userId: ''
   };
+  spinnerDiameter = 1;
+  carddata: any;
+  imagepath: any;
+  myicon: any;
+  icon: any;
+  visaRegEx: any;
+  mastercardRegEx: any;
+  amexpRegEx: any;
+  discovRegEx: any;
+  errormesg: any = '';
 
   dummyParam = '123456XYZ';
   parameter: String;
@@ -52,9 +64,40 @@ export class FraudSearchComponent implements OnInit {
 
 
   ChangeSortOrder(newSortOrder: string) {
-    this.selectedSortOrder = newSortOrder;
-    this.searchObj.parameter = this.selectedSortOrder;
+    switch (newSortOrder) {
+      case 'card':
+        this.selectedSortOrder = 'Bank Card';
+        break;
+      case 'mobilemoney':
+        this.selectedSortOrder = 'Mobile Money';
+        break;
+      case 'device':
+        this.selectedSortOrder = 'Device';
+        break;
+      default:
+        this.selectedSortOrder  = 'Select Parameters';
+    }
+    // this.selectedSortOrder = newSortOrder;
+    this.searchObj.parameter = newSortOrder;
   }
+
+  ChangeDetails(newDetailOrder: string) {
+    switch (newDetailOrder) {
+      case 'imei':
+        this.detailOrder = 'IMEI';
+        break;
+      case 'deviceId':
+        this.detailOrder = 'Device ID';
+        break;
+ 
+      default:
+        this.detailOrder  = 'Select details';
+    }
+    // this.selectedSortOrder = newSortOrder;
+    // this.searchObj.parameter = newSortOrder;
+  }
+
+
   submit() {
     this.bureauservice.searchRecords(this.searchObj)
       .subscribe( res => {
@@ -82,6 +125,47 @@ export class FraudSearchComponent implements OnInit {
   showError() {
     this.toastr.error(this.result.msg);
 
+  }
+
+  showIcon(myvalue: any){
+    const ccNum = myvalue;
+    this.visaRegEx = /^4/;
+    this.mastercardRegEx = /^5[1-5]/;
+    this.amexpRegEx = /^3[47]/;
+    this.discovRegEx = /^6011/;
+    if (this.visaRegEx.test(ccNum)) {
+    this.icon = 'assets/img/visa.png';
+    return this.icon;
+    } else if (this.mastercardRegEx.test(ccNum)) {
+    this.icon = 'assets/img/mastercard.png';
+    return this.icon;
+    } else if (this.amexpRegEx.test(ccNum)) {
+    this.icon = 'assets/img/american-express.png';
+    return this.icon;
+
+    } else if (this.discovRegEx.test(ccNum)) {
+    this.icon = 'assets/img/discover.png';
+    return this.icon;
+
+    }
+  }
+  onCardinput(inputValue: any): void {
+    const ccNum = inputValue;
+    this.visaRegEx = /^4/;
+    this.mastercardRegEx = /^5[1-5]/;
+    this.amexpRegEx = /^3[47]/;
+    this.discovRegEx = /^6011/;
+    if (this.visaRegEx.test(ccNum)) {
+    this.imagepath = 'assets/img/visa.png';
+    } else if (this.mastercardRegEx.test(ccNum)) {
+    this.imagepath = 'assets/img/mastercard.png';
+    } else if (this.amexpRegEx.test(ccNum)) {
+    this.imagepath = 'assets/img/american-express.png';
+    } else if (this.discovRegEx.test(ccNum)) {
+    this.imagepath = 'assets/img/discover.png';
+    } else {
+      this.imagepath = 'assets/img/credit-card.png';
+    }
   }
 
   checktokexpiry() {

@@ -1,7 +1,7 @@
 
-@import '../../../../..//@theme/scss/components/functions';
-@import '../../../../../@theme/scss/components/mixins';
-@import '../../../../../@theme/scss/components/variables';
+@import 'src/@theme/scss/components/functions';
+@import 'src/@theme/scss/components/mixins';
+@import 'src/@theme/scss/components/variables';
 
 :host {
     ngb-tabset .nav-pills {

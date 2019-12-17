@@ -9,21 +9,40 @@
 						<div class="col-md-3 col-xs-3">
 							<h5 class="box-title mb-4 mt-3">Search By</h5>
 							<div ngbDropdown class="d-inline-block">
-								<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedSortOrder}}</button>
+								<button class="btn btn-outline-primary" id="dropdownBasic1" style="width: 180px !important;" ngbDropdownToggle>{{selectedSortOrder}}</button>
 								<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-									<button class="dropdown-item" *ngFor="let sortOrder of sortOrders" (click)="ChangeSortOrder(sortOrder)">{{sortOrder}}</button>
+									<button class="dropdown-item" *ngFor="let sortOrder of sortOrders" (click)="ChangeSortOrder(sortOrder)">
+										<span *ngIf="sortOrder == 'card'">Bank Card</span>
+										<span *ngIf="sortOrder == 'mobilemoney'">Mobile Money</span>
+										<span *ngIf="sortOrder == 'device'">Device</span>
+									</button>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-7 col-xs-7">
+						<div class="col-md-8 ">
 							<div [ngSwitch]='selectedSortOrder'>
 									<h5 class="box-title mb-4 mt-3">Search Details</h5>
-									<div *ngSwitchCase="'card'">
-										<form class="form-inline form-success mb-4" action="javascript:;">
+									<div *ngSwitchCase="'Bank Card'">
+										<form class="form-success mb-4" action="javascript:;">
 											<label class="sr-only" for="prefix">Prefix</label>
-											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="prefix" type="text" [(ngModel)]="searchObj.prefix" name="prefix" placeholder="prefix">
-											<label class="sr-only" for="suffix">Suffix</label>
-											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="suffix" type="text" [(ngModel)]="searchObj.suffix" name="suffix"  placeholder="suffix">
+											<div class="row">
+												<div class="col-md-6">
+													<input class="form-control mb-2" id="prefix" type="text" [(ngModel)]="searchObj.prefix" name="prefix" placeholder="prefix"  (input)="onCardinput($event.target.value)">
+
+												</div>
+												<div class="col-md-6">
+													<span class="ml-2"><img style="max-width: 10% !important;" src={{imagepath}} alt=""></span>
+
+												</div>
+											</div>
+											
+											
+											<!-- <label class="sr-only" for="suffix">Suffix</label> -->
+											<div class="row">
+												<div class="col-md-6">
+													<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="suffix" type="text" [(ngModel)]="searchObj.suffix" name="suffix"  placeholder="suffix">
+												</div>
+											</div>
 										</form>
 									</div>
 									<div *ngSwitchCase="'account'">
@@ -34,15 +53,45 @@
 											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="number" type="text" [(ngModel)]="searchObj.msisdn" name="msisdn"   placeholder="Enter Phone">
 										</form>
 									</div>
-									<div *ngSwitchCase="'device'">
+									<div *ngSwitchCase="'Device'">
+										<div class="row">
+											<div class="col-md-6">
+												<div ngbDropdown class="d-inline-block">
+														<button class="btn btn-outline-primary" id="dropdownBasic1" style="width: 180px !important;" ngbDropdownToggle>{{detailOrder}}</button>
+														<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+															<button class="dropdown-item" *ngFor="let order of deviceDetails" (click)="ChangeDetails(order)">
+																<span *ngIf="order == 'imei'">IMEI</span>
+																<span *ngIf="order == 'deviceId'">Device ID</span>
+															</button>
+														</div>
+													</div>
+											</div>
+											<div class="col-md-6">
+												<div *ngIf="detailOrder == 'IMEI'">
+														<form class="form-inline form-success mb-4" >
+																<label class="sr-only" for="model">IMEI</label>
+																<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="model"  [(ngModel)]="searchObj.imei" type="text" name="imei"  placeholder="IMEI">
+															</form>
+												</div>
+												<div *ngIf="detailOrder == 'Device ID'">
+														<form class="form-inline form-success mb-4" >
+																<label class="sr-only" for="suffix">Device Id</label>
+																<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="deviceid" type="text"   [(ngModel)]="searchObj.deviceId" name="deviceId"  placeholder="DeviceId">
+															</form>
+													</div>
+													
+												
+											</div>
+										</div>
+<!-- 											
 										<form class="form-inline form-success mb-4" >
 											<label class="sr-only" for="model">IMEI</label>
 											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="model"  [(ngModel)]="searchObj.imei" type="text" name="imei"  placeholder="IMEI">
 											<label class="sr-only" for="suffix">Device Id</label>
 											<input class="form-control mb-2 mr-sm-2 mb-sm-0x" id="deviceid" type="text"   [(ngModel)]="searchObj.deviceId" name="deviceId"  placeholder="DeviceId">
-										</form>
+										</form> -->
 									</div>
-									<div *ngSwitchCase="'mobilemoney'">
+									<div *ngSwitchCase="'Mobile Money'">
 									<div class="form-inline mb-4" >
 											<international-phone-number    name="msisdn"  placeholder="Enter phone number" [maxlength]="20" [defaultCountry]="'ug'" [required]="true" [(ngModel)]="searchObj.msisdn" name="phone_number" [allowedCountries]="['ug','rw','in', 'ca', 'us','tz','ke']"></international-phone-number>
 										</div>
@@ -53,7 +102,7 @@
 												<input [value]="dummyParam" class="form-control mb-2 mr-sm-2 mb-sm-0x" id="param" type="text" >
 										</form>
 									</div>
-								</div>
+							</div>
 						</div>
 					</div>
 

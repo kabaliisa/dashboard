@@ -109,6 +109,11 @@ export class NavigationComponent implements OnInit {
       icon: 'fa fa-cog',
       childrens: [
         {
+          title: 'Your Products',
+          url: './Product',
+          icon: 'fa fa-archive',
+        },
+        {
           title: 'API',
           url: './Bureauapi',
           icon: 'fa fa-archive',

@@ -5,7 +5,8 @@ COPY . .
 RUN npm install
 
 ARG configuration=production
-RUN npm run build -- --output-path=./dist --configuration $configuration
+RUN npm run build -- --output-path=./dist --configuration $configuration  --aot --extract-css=true --sourceMap=false  --build-optimizer=true --vendor-chunk=true
+# RUN npm run build --environment=$env
 
 # stage 2do
 FROM nginx:alpine

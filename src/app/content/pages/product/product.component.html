@@ -1,0 +1,25 @@
+<subheader title='Add product'></subheader>
+
+<!-- <div class="alert alert-primary alert-bordered bg-white font-15 mb-5" style="color: inherit;">
+    <p class="mb-2">
+    	The template also integrates Angular Material.<br>
+    	You can also use <a href='https://material.angular.io/components/categories' target="_blank"><b>Angular Material Form Controls</b></a>
+    </p>
+</div> -->
+
+<div class="row">
+	<div class="col-lg-12">
+		<card title='Add Product' fullheight="true">
+			<form #f="ngForm" (ngSubmit)="add(f.value)">
+			    <div class="form-group mb-4">
+			        <label for="exampleInputEmail1">Product</label>
+					<input class="form-control" ngModel  type="text" name="productname"  placeholder="Product">
+				</div>
+				<div class="form-group float-right">
+                    <button class="btn btn-primary mr-2" type="submit">Submit</button>
+                    <button class="btn btn-light" type="reset">Clear</button>
+                </div>
+			</form>
+		</card>
+	</div>
+</div>

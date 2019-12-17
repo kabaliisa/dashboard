@@ -1,6 +1,23 @@
 <subheader title="Post record" ></subheader>
 
-
+<ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Product</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <form class="form-horizontal"  #f="ngForm" (ngSubmit)="add(f.value)">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput">Product</label>
+                            <input class="form-control" ngModel  type="text" name="productname"  placeholder="Product">
+                        </div>
+                 
+                        <button class="btn btn-primary pull-right"><i class="ft ft-plus"></i>&nbsp;Add</button>
+                </form>
+        </div>
+    </ng-template>
 <div class="row">
     <div class="col-lg-12">
         <card [title]="'Record Form'" [fullheight]="true">
@@ -8,9 +25,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-4">
+                            <label>Customer Name</label>
+                            <input class="form-control" [(ngModel)]="transOb.transactionData.accountDetails.userId" name="userId" type="text" placeholder="Customer Name">
+                        </div>
+                        <!-- <div class="form-group mb-4">
                             <label>Transaction Id</label>
                             <input class="form-control"  [(ngModel)]="transOb.transactionData.transactionId" name="transactionId" type="text" placeholder="Transaction Id">
-                        </div>
+                        </div> -->
                         <div class="form-group mb-4">
                                 <label>Transaction Date</label>
                             <div class="input-group">
@@ -29,11 +50,8 @@
                             <label>Time</label>
                             <ngb-timepicker [(ngModel)]="time" name='time' [meridian]="meridian"></ngb-timepicker>
                          </div>
-                        <div class="form-group mb-4">
-                            <label>User Id</label>
-                            <input class="form-control" [(ngModel)]="transOb.transactionData.accountDetails.userId" name="userId" type="text" placeholder="User Id">
-                        </div>
-                        <div class="form-group mb-4">
+                     
+                        <!-- <div class="form-group mb-4">
                                 <label>Creation Date</label>
 
                                 <div class="input-group">
@@ -48,95 +66,117 @@
                                     </div>
                             </div>
                             
-                                <!-- <div class="input-group">
-                                  <input class="form-control" placeholder="yyyy-mm-dd"
-                                         name="dp" [(ngModel)]="model2" ngbDatepicker #d="ngbDatepicker">
-                                  <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                                  </div>
-                                </div> -->
+                     
                          </div>
+                          -->
                         <div class="form-group">
-                                <label for="exampleFormControlSelect1">Payment Method</label>
-                                <select class="form-control" [(ngModel)]="transOb.transactionData.paymentMethod.name" name="method" id="exampleFormControlSelect1" (change)="ChangeSortOrder($event)">
-                                  <option  *ngFor="let sortOrder of sortOrders" >{{sortOrder}}</option>
-                                </select>
-                              </div>
-                        <div [ngSwitch]='selectedSortOrder'>
-                                <label for="exampleFormControlSelect1">Payment Details</label>
-								<div *ngSwitchCase="'bankcard'">
-									<div class="form-inline form-success mb-4" action="javascript:;">
-										<label class="sr-only" for="prefix">Prefix</label>
-										<input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.paymentMethod.details.prefix" name="prefix" id="prefix" type="text" placeholder="prefix">
-										<label class="sr-only" for="suffix">Suffix</label>
-										<input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.paymentMethod.details.suffix" name="suffix" id="suffix" type="text" placeholder="suffix">
-                                    </div>
-								</div>
-							
-                                <div *ngSwitchCase="'mobilemoney'">
-                                    <div class="form-group">
-                                    <!-- <label for="phone">Phone Number</label> -->
-                                        <international-phone-number   [(ngModel)]="transOb.transactionData.paymentMethod.details.msisdn" name="msisdn"  placeholder="Enter phone number" [maxlength]="20" [defaultCountry]="'ug'" [required]="true"  name="phone_number" [allowedCountries]="['ug','rw','in', 'ca', 'us','tz','ke']"></international-phone-number>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'wallet'">
-									<div class="form-inline form-success mb-4">
-										<label class="sr-only" for="prefix">Wallet</label>
-										<input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.paymentMethod.details.accountid" name="accountid" id="accountid" type="text" placeholder="account Id">
-                                    </div>
-								</div>
-								
-								<div *ngSwitchDefault>
+
+                                <!-- <label>Location Details</label>
+                                <div class="form-inline form-success mb-4" action="javascript:;">
+                                        <label class="sr-only" for="prefix">IMEI</label>
+                                        <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.deviceDetails.imei" name="imei" id="prefix" type="text" placeholder="Address">
+                                        <label class="sr-only" for="suffix">Device Id</label>
+                                        <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.deviceDetails.deviceId" name="deviceId" id="suffix" type="text" placeholder="Street">
+                                    </div> -->
+                                    <label>Device Details</label>
                                     <div class="form-inline form-success mb-4" action="javascript:;">
-                                            <label class="sr-only" for="param">Email</label>
-                                            <input [value]="dummyParam" class="form-control mb-2 mr-sm-2 mb-sm-0x" id="param" type="text" >
-                                    </div>
-								</div>
+                                            <label class="sr-only" for="prefix">Address</label>
+                                            <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.deviceDetails.imei" name="imei" id="prefix" type="text" placeholder="IMEI">
+                                            <label class="sr-only" for="suffix">Street</label>
+                                            <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.deviceDetails.deviceId" name="deviceId" id="suffix" type="text" placeholder="device Id">
+                                        </div>
+                            
+                                
 						</div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group mb-4">
-                            <label>Product Id</label>
-                            <input class="form-control"  [(ngModel)]="transOb.transactionData.productDetails.productId" name="productId" type="text" placeholder="Product Id">
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <label>Product Purchased</label>
+
+                                        <select class="form-control" [(ngModel)]="transOb.transactionData.productDetails.name" name="units" id="exampleFormControlSelect1">
+                                                <option value="">Select product</option>
+                                                <option  *ngFor="let product of products" >{{product}}</option>
+                                        </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="padding-top: 1.8rem!important;">
+                                            <button class="btn btn-light btn-floating" (click)="openBackDropCustomClass(content)" type="button"><i class="ti-plus"></i></button><br>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <!-- <label>Product Id</label> -->
+                            <!-- <input class="form-control"  [(ngModel)]="transOb.transactionData.productDetails.productId" name="productId" type="text" placeholder="Product Id"> -->
                         
                         </div>
-                        <div class="form-group mb-4">
+                        <!-- <div class="form-group mb-4">
                             <label>Product Category</label>
                                 <input class="form-control"   [(ngModel)]="transOb.transactionData.productDetails.category" name="name" type="text" placeholder="Product Name">
                         </div>
                         <div class="form-group mb-4">
                             <label>Product Name</label>
                                 <input class="form-control"   [(ngModel)]="transOb.transactionData.productDetails.name" name="name" type="text" placeholder="Product Name">
-                        </div>
+                        </div> -->
                         <div class="form-group mb-4">
                             <label>Amount</label>
                             <input class="form-control"  [(ngModel)]="transOb.transactionData.amount.amount" name="amount" type="text" placeholder="Amount">
                         </div>
-                        <div class="form-group mb-4">
-                                <label for="exampleFormControlSelect1">Units</label>
-                                <select class="form-control" [(ngModel)]="transOb.transactionData.amount.currency" name="units" id="exampleFormControlSelect1">
-                                  <option  *ngFor="let unit of units" >{{unit}}</option>
-                                </select>
-                              </div>
-                        <label>Location Details</label>
-                        <div class="form-inline form-success mb-4" action="javascript:;">
-                                <label class="sr-only" for="prefix">IMEI</label>
-                                <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.deviceDetails.imei" name="imei" id="prefix" type="text" placeholder="Address">
-                                <label class="sr-only" for="suffix">Device Id</label>
-                                <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.deviceDetails.deviceId" name="deviceId" id="suffix" type="text" placeholder="Street">
-                            </div>
-                            <label>Device Details</label>
-                            <div class="form-inline form-success mb-4" action="javascript:;">
-                                    <label class="sr-only" for="prefix">Address</label>
-                                    <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.locationDetails.address" name="imei" id="prefix" type="text" placeholder="IMEI">
-                                    <label class="sr-only" for="suffix">Street</label>
-                                    <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.locationDetails.street" name="deviceId" id="suffix" type="text" placeholder="device Id">
-                                </div>
-                        <div class="form-group">
-                            <label>Reason</label>
-                            <textarea class="form-control"  [(ngModel)]="transOb.comment" name="comment" rows="3"></textarea>
-                        </div>
+                        <!-- <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Currency</label>
+                                        <select class="form-control" [(ngModel)]="transOb.transactionData.amount.currency" name="units" id="exampleFormControlSelect1">
+                                                <option value="">Select currency</option>
+
+                                        <option  *ngFor="let unit of units" >{{unit}}</option>
+                                        </select>
+                                </div> -->
+                                <div class="form-group mb-4">
+                                <label for="exampleFormControlSelect1">Payment Method</label>
+                                        <select  class="form-control" [(ngModel)]="transOb.transactionData.paymentMethod.name" name="method" id="exampleFormControlSelect1" (change)="ChangeSortOrder($event)">
+                                                <option value="">Select payment method</option>
+                                                <option value="bankcard">Bank Card</option>
+                                                <option value="mobilemoney">Mobile Money</option>
+                                                <option value="wallet">Wallet</option>
+                                            <!-- <option  *ngFor="let sortOrder of sortOrders" >{{sortOrder}}</option> -->
+                                        </select>
+                                    </div>
+                                <div [ngSwitch]='selectedSortOrder'>
+                                        <div *ngSwitchCase="'bankcard'">
+                                            <div class="form-inline form-success mb-4" action="javascript:;">
+                                                <label class="sr-only" for="prefix">Prefix</label>
+                                                <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.paymentMethod.details.prefix" name="prefix" id="prefix" type="text" placeholder="prefix">
+                                                <label class="sr-only" for="suffix">Suffix</label>
+                                                <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.paymentMethod.details.suffix" name="suffix" id="suffix" type="text" placeholder="suffix">
+                                            </div>
+                                        </div>
+                                    
+                                        <div *ngSwitchCase="'mobilemoney'">
+                                            <div class="form-group">
+                                                <international-phone-number   [(ngModel)]="transOb.transactionData.paymentMethod.details.msisdn" name="msisdn"  placeholder="Enter phone number" [maxlength]="20" [defaultCountry]="'ug'" [required]="true"  name="phone_number" [allowedCountries]="['ug','rw','in', 'ca', 'us','tz','ke']"></international-phone-number>
+                                            </div>
+                                        </div>
+                                        <div *ngSwitchCase="'wallet'">
+                                            <div class="form-inline form-success mb-4">
+                                                <label class="sr-only" for="prefix">Wallet</label>
+                                                <input class="form-control mb-2 mr-sm-2 mb-sm-0x" [(ngModel)]="transOb.transactionData.paymentMethod.details.accountid" name="accountid" id="accountid" type="text" placeholder="account Id">
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- <div *ngSwitchDefault>
+                                            <div class="form-inline form-success mb-4" action="javascript:;">
+                                                    <label class="sr-only" for="param">Email</label>
+                                                    <input [value]="dummyParam" class="form-control mb-2 mr-sm-2 mb-sm-0x" id="param" type="text" >
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label>Fraud Comment</label>
+                                            <input class="form-control"  [(ngModel)]="transOb.comment" name="comment" placeholder="Fraud comment" >
+                                        </div>
                       
+                                </div>
                     </div>
                 </div>
                

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { SharedDataService } from './../../../../services/shared-data.service';
+import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core';
 import { BureauService } from 'src/services/bureau.service';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -13,6 +14,7 @@ import { AuthenticationService } from 'src/services';
   styleUrls: ['./post-record.component.css']
 })
 export class PostRecordComponent implements OnInit {
+
   @ViewChild('LoginModal') LogiModal: TemplateRef<any>;
 
   myDpOptions: IAngularMyDpOptions = {
@@ -22,6 +24,8 @@ export class PostRecordComponent implements OnInit {
     openSelectorTopOfInput: false,
     // other options are here...
   };
+  productsadded: any;
+  myproduct: any;
   model;
   model2;
   transactionDate: any;
@@ -33,7 +37,9 @@ export class PostRecordComponent implements OnInit {
   meridian = true;
   sortOrders: string[] = ['bankcard', 'mobilemoney', 'wallet'];
   units: string[] = ['UGX', 'USD'];
-  selectedSortOrder = 'Payment type';
+  products: string[] = [];
+  prodresult: any;
+  selectedSortOrder = '';
   dummyParam = '123456XYZ';
   parameter: String;
   result: any;
@@ -85,9 +91,12 @@ export class PostRecordComponent implements OnInit {
     private toastr: ToastrService,
     public router: Router,
     private auth: AuthenticationService,
+    private data: SharedDataService,
+    private productservice: SharedDataService
   ) {  }
 
   ngOnInit() {
+    this.getProducts();
   }
  // tslint:disable-next-line: use-life-cycle-interface
  ngAfterContentInit() {
@@ -151,8 +160,7 @@ formatHour(x) {
   }
   showsuccess(): void {
     this.toastr.success(this.result.message);
-    this.router.navigate(['/Rac/Fraud-manager']);
-    
+    this.router.navigate(['/Rac/Fraudmanager']);
   }
 
   ShowError(): void {
@@ -163,11 +171,43 @@ formatHour(x) {
     }
   }
 
+  getProducts() {
+    this.productservice.getProduct()
+      .subscribe(res => {
+        this.prodresult = res;
+        const name = this.prodresult.data;
+        for (const i of name) {
+          this.products.push(i.productname);
+        }
+      });
+  }
 
-formatMinute(y){
+  add(value) {
+    this.productservice.addProduct(value)
+      .subscribe(res => {
+        this.productsadded = res;
+      }, err => {
+
+      }, () => {
+        if (!this.productsadded.status) {
+          this.toastr.error(this.productsadded.error[0].val);
+        } else {
+          this.toastr.success(this.productsadded.msg);
+          this.modalService.dismissAll();
+        }
+        this.products = [];
+        this.getProducts();
+      });
+  }
+
+  openBackDropCustomClass(content) {
+    this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
+  }
+
+formatMinute(y) {
   if ( y.toString().length === 1) {
      this.time.minute = '0' + y.toString();
-  }else{
+  } else {
     this.time.minute = y;
   }
 

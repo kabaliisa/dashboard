@@ -13,8 +13,7 @@ export class BureauService {
   private messagesource2 = new BehaviorSubject({status: 'false'});
   currentdata = this.messageSource.asObservable();
   currentdata2 = this.messagesource2.asObservable();
-  // bureaUrl = 'https://testapp.cognativeinsights.io/bureal/';
-
+  bureaUrl = 'https://testapp.cognativeinsights.io/bureal/';
   constructor(private http: HttpClient) { }
 
   postRecord(data) {
